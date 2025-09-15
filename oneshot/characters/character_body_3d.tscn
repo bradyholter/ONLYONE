@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5hdsrteij3n2"]
+
+[ext_resource type="Script" uid="uid://c7fbq8ph53iei" path="res://characters/character_body_3d.gd" id="1_6la13"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lbw71"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jy7qi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6la13"]
+albedo_color = Color(0.664348, 0.000361269, 0.67173, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lbw71"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hbt4h"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_6la13")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_lbw71")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="body" type="MeshInstance3D" parent="Model"]
+mesh = SubResource("CapsuleMesh_jy7qi")
+surface_material_override/0 = SubResource("StandardMaterial3D_6la13")
+
+[node name="visor" type="MeshInstance3D" parent="Model"]
+transform = Transform3D(0.53923, 0, 0, 0, 0.444022, 0, 0, 0, 0.645727, 0.0745584, 0.839814, -0.242214)
+mesh = SubResource("BoxMesh_lbw71")
+surface_material_override/0 = SubResource("StandardMaterial3D_hbt4h")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+fov = 90.0
