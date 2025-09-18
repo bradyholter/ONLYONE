@@ -3,12 +3,12 @@
 importer="wavefront_obj"
 importer_version=1
 type="Mesh"
-uid="uid://b7jnvdphv4ack"
+uid="uid://bmgdnwiuet2el"
 valid=false
 
 [deps]
 
-source_file="res://assets/flashlight.obj"
+source_file="res://assets/flashlight (2).obj"
 
 [params]
 
