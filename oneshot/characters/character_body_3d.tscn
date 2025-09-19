@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c5hdsrteij3n2"]
 
 [ext_resource type="Script" uid="uid://c7fbq8ph53iei" path="res://characters/character_body_3d.gd" id="1_6la13"]
-[ext_resource type="ArrayMesh" uid="uid://cjo33c4j711wn" path="res://assets/flashlight.obj" id="2_lbw71"]
+[ext_resource type="PackedScene" uid="uid://bl6qqtob4a83v" path="res://flashlight.tscn" id="2_lbw71"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lbw71"]
 
@@ -36,6 +36,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_hbt4h")
 [node name="Camera3D" type="Camera3D" parent="."]
 fov = 90.0
 
-[node name="Flashlight" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.03, 0, 0, 0, 0.0716702, 0, 0, 0, 0.03, 0, -1.423, 2.179)
-mesh = ExtResource("2_lbw71")
+[node name="Node3D" parent="Camera3D" instance=ExtResource("2_lbw71")]
+transform = Transform3D(-0.389805, 0, -0.0123454, 0, 0.39, 0, 0.0123454, 0, -0.389805, -1.427, -2.405, 0.205)

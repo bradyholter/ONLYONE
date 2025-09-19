@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl6qqtob4a83v"]
+
+[ext_resource type="Script" uid="uid://bdmrnt2nhw0gu" path="res://flashlight.gd" id="1_h3kvc"]
+[ext_resource type="ArrayMesh" uid="uid://djl047amqj2ls" path="res://assets/thelight.obj" id="1_nnxok"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_h3kvc")
+
+[node name="Thelight" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, -0.00165799, -0.0999863, 0, 0.0999863, -0.00165799, -4.09085, 5.6127, 0.535901)
+mesh = ExtResource("1_nnxok")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.999657, -0.0261769, 0, 0.0261769, -0.999657, -4.30967, 5.59665, 1.09593)
+light_color = Color(0.828351, 0.76243, 0.176685, 1)
+light_energy = 0.0
+spot_range = 15.0
+spot_angle = 30.0
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -181.0
+offset_right = 47.0
+grow_vertical = 0
+max_value = 1000.0
+value = 1000.0
+fill_mode = 3

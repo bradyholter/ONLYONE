@@ -15,6 +15,7 @@ sky_material = SubResource("ProceduralSkyMaterial_oe0o1")
 [sub_resource type="Environment" id="Environment_1o5x8"]
 background_mode = 2
 sky = SubResource("Sky_465jp")
+volumetric_fog_density = 0.1026
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_7qh1q"]
 
@@ -38,6 +39,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477365, 1, 3.4714)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0475946, 0.998867, 0, -0.998867, -0.0475946, 0, 51.3462, 0)
+light_energy = 0.0
+light_volumetric_fog_energy = 1.345
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1o5x8")
