@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bl6qqtob4a83v"]
+[gd_scene load_steps=4 format=3 uid="uid://bl6qqtob4a83v"]
 
 [ext_resource type="Script" uid="uid://bdmrnt2nhw0gu" path="res://flashlight.gd" id="1_h3kvc"]
 [ext_resource type="ArrayMesh" uid="uid://djl047amqj2ls" path="res://assets/thelight.obj" id="1_nnxok"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h3kvc"]
+albedo_color = Color(1, 1, 0, 1)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_h3kvc")
@@ -9,6 +12,7 @@ script = ExtResource("1_h3kvc")
 [node name="Thelight" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, -0.00165799, -0.0999863, 0, 0.0999863, -0.00165799, -4.09085, 5.6127, 0.535901)
 mesh = ExtResource("1_nnxok")
+surface_material_override/0 = SubResource("StandardMaterial3D_h3kvc")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.999657, -0.0261769, 0, 0.0261769, -0.999657, -4.30967, 5.59665, 1.09593)
