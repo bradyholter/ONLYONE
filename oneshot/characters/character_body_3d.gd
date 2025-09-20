@@ -25,4 +25,13 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
+
 	move_and_slide()
+var mouse_sensitivity = .002
+@onready var camera_3d = $Camera3D
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		rotate_y(-event.relative.x * mouse_sensitivity)
+		camera_3d.rotate_x(-event.relative.y * mouse_sensitivity) 
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED 
