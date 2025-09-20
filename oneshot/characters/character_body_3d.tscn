@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5hdsrteij3n2"]
+[gd_scene load_steps=7 format=3 uid="uid://c5hdsrteij3n2"]
 
 [ext_resource type="Script" uid="uid://c7fbq8ph53iei" path="res://characters/character_body_3d.gd" id="1_6la13"]
 [ext_resource type="PackedScene" uid="uid://bl6qqtob4a83v" path="res://flashlight.tscn" id="2_lbw71"]
@@ -10,11 +10,9 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6la13"]
 albedo_color = Color(0.664348, 0.000361269, 0.67173, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_lbw71"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hbt4h"]
-vertex_color_use_as_albedo = true
-albedo_color = Color(0, 0, 0, 1)
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_411sa"]
+random_pitch = 1.2
+streams_count = 4
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_6la13")
@@ -24,17 +22,31 @@ shape = SubResource("CapsuleShape3D_lbw71")
 
 [node name="Model" type="Node3D" parent="."]
 
+[node name="Camera3D" type="Camera3D" parent="Model"]
+fov = 90.0
+
+[node name="Node3D" parent="Model" instance=ExtResource("2_lbw71")]
+transform = Transform3D(-0.389805, 0, -0.0123454, 0, 0.39, 0, 0.0123454, 0, -0.389805, -1.427, -2.405, 0.205)
+
 [node name="body" type="MeshInstance3D" parent="Model"]
 mesh = SubResource("CapsuleMesh_jy7qi")
 surface_material_override/0 = SubResource("StandardMaterial3D_6la13")
 
-[node name="visor" type="MeshInstance3D" parent="Model"]
-transform = Transform3D(0.53923, 0, 0, 0, 0.444022, 0, 0, 0, 0.645727, 0.0745584, 0.839814, -0.242214)
-mesh = SubResource("BoxMesh_lbw71")
-surface_material_override/0 = SubResource("StandardMaterial3D_hbt4h")
+[node name="stamina" type="ProgressBar" parent="."]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -526.0
+offset_top = 621.0
+offset_right = -91.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1000.0
+value = 500.0
+show_percentage = false
 
-[node name="Camera3D" type="Camera3D" parent="."]
-fov = 90.0
-
-[node name="Node3D" parent="Camera3D" instance=ExtResource("2_lbw71")]
-transform = Transform3D(-0.389805, 0, -0.0123454, 0, 0.39, 0, 0.0123454, 0, -0.389805, -1.427, -2.405, 0.205)
+[node name="FootstepAudio3D" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.165744, 0, 0.133703)
+stream = SubResource("AudioStreamRandomizer_411sa")
