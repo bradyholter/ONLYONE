@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bg3nc2mx23uyl"]
+[gd_scene load_steps=10 format=3 uid="uid://bg3nc2mx23uyl"]
 
+[ext_resource type="Script" uid="uid://dkj3knouwhvm" path="res://levels/node_3d.gd" id="1_465jp"]
 [ext_resource type="PackedScene" uid="uid://c5hdsrteij3n2" path="res://characters/character_body_3d.tscn" id="1_oe0o1"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_465jp"]
@@ -22,6 +23,7 @@ volumetric_fog_density = 0.1026
 [sub_resource type="Compositor" id="Compositor_euk3g"]
 
 [node name="Environment" type="Node3D"]
+script = ExtResource("1_465jp")
 
 [node name="Floor" type="Node3D" parent="."]
 
