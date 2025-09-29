@@ -12,7 +12,15 @@ var headbob_time := 0.0
 var footstep_can_play := true
 var footstep_landed
 
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED 
+	
+
 func _physics_process(delta: float) -> void:
+	
+	if %SeeCast.is_colliding():
+		var target = %SeeCast.get_collider()
+		print(target)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -52,6 +60,7 @@ func _physics_process(delta: float) -> void:
 		%FootstepAudio3D
 	footstep_landed = is_on_floor()
 	
+	
 func headbob(headbob_time):
 	var headbob_position = Vector3.ZERO
 	headbob_position.y = sin(headbob_time * headbob_frequency) * headbob_amplitude
@@ -73,6 +82,4 @@ func _input(event: InputEvent) -> void:
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		camera_3d.rotate_x(-event.relative.y * mouse_sensitivity)
 		camera_3d.rotation.x = clamp(camera_3d.rotation.x, deg_to_rad(-40), deg_to_rad(60))
-func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED 
-	
+		
